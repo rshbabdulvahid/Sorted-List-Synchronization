@@ -7,14 +7,15 @@ Meaningful contents:
 	-data_producer.sh
 	-lab2b.gp
 
-This code was created to demonstrate serialized operations on a circular linked list, showing how to parallelize the shared usage of 
+This code was created to demonstrate serialized operations on a circular sorted linked list, showing how to parallelize the shared usage of 
 this resource. The code supports a [--lists] option, which determines how many sub-lists the overall linked list will be partitioned into.
 Each thread, based on the key it's about to insert into the list (modulo'd by the number of total sub-lists), will find a sub-list to 
 perform operations on. The thread will insert some number of elements into the list, look them up afterwards, and delete the inserted elements.
 The total length of the linked list will be checked after inserts and after deletes to make sure there are no errors with serialization (if
 there are, the code will report them and stop). The code also supports [--yield] options, which will force a thread to yield during a linked
-list operation. The code supports serialization using either mutex or spin-lock synchronization. Ultimately, the code will produce a comma-separated
-summary of its operations on the linked list. Using a graph script, operating on a list of CSV output from the code, 5 graphs can be produced.
+list operation: this is used to maximize contention and cause race conditions when they need to be demonstrated. The code supports serialization
+using either mutex or spin-lock synchronization. Ultimately, the code will produce a comma-separated summary of its operations on the linked list.
+Using a graph script, operating on a list of CSV output from the code, 5 graphs can be produced.
 
 Output: name of test, number of threads, number of iterations, number of lists, total operations performed, run time in ns, average time/op, and 
 	average wait-for-lock (for mutex operations)
@@ -47,5 +48,5 @@ Usage: ./lab2_list [--threads=THREADNUM] [--iterations=NUM] [--lists=NUMLISTS] [
 Makefile included supports 4 useful targets:
 	 -build builds the executable lab2_list
 	 -tests creates a CSV file from data_producer.sh, used to produce the 5 graphs
-	 -graphs produces the graphs, using the graphing script lab2b.gp
+	 -graphs produces the graphs from the CSV, using the graphing script lab2b.gp
 	 -clean will remove the executable	 
