@@ -3,7 +3,7 @@ NAME: Rishab Abdulvahid
 EMAIL: rabdulvahid23@g.ucla.edu
 
 
-Meaningful contents:
+**Meaningful contents:**
 
 	-Makefile
 	-lab2_list.c
@@ -23,11 +23,11 @@ of its operations on the linked list. Using a graph script, operating on a list 
 be produced.
 
 
-Output: name of test, number of threads, number of iterations, number of lists, total operations performed, run time in ns,
+**Output**: name of test, number of threads, number of iterations, number of lists, total operations performed, run time in ns,
 average time/op, and average wait-for-lock (for mutex operations)
 
 
-Graphs:
+**Graphs**
 
 	lab2b_1: Throughput versus number of threads for mutex and spin-lock synchronized operations on a single list.
 		 Demonstrates how parallelizing a shared resource does not scale well with multiple threads (unless the
@@ -42,7 +42,7 @@ Graphs:
 	lab2b_5: Throughput versus number of threads for various numbers of sub-lists protected w/ spin-lock. Demonstrates
 		 how increasing sub-lists generates an increase in throughput for various numbers of threads.
 
-Usage: ./lab2_list [--threads=THREADNUM] [--iterations=NUM] [--lists=NUMLISTS] [--yield=idl] [--sync=m,s]
+**Usage:** ./lab2_list _[--threads=THREADNUM]_ _[--iterations=NUM]_ _[--lists=NUMLISTS]_ _[--yield=idl]_ _[--sync=m,s]_
 
 	-threads designate the number of threads to be used
 
@@ -63,7 +63,7 @@ Usage: ./lab2_list [--threads=THREADNUM] [--iterations=NUM] [--lists=NUMLISTS] [
 		-m indicated mutex-locking
 		Only one of the two should be passed
 
-Makefile included supports 4 useful targets:
+**Makefile** included supports 4 useful targets:
 
 	 -build builds the executable lab2_list
 	 -tests creates a CSV file from data_producer.sh, used to produce the 5 graphs
@@ -71,7 +71,7 @@ Makefile included supports 4 useful targets:
 	 -clean will remove the executable	 
 	 
 
-lab2b_1 - lab2b_5 (in order)
+**lab2b_1 - lab2b_5 (in order)**
 
 ![Screenshot](/lab2b_1.png) 
 
