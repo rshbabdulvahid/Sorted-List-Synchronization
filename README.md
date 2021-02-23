@@ -44,24 +44,24 @@ Graphs:
 
 Usage: ./lab2_list [--threads=THREADNUM] [--iterations=NUM] [--lists=NUMLISTS] [--yield=idl] [--sync=m,s]
 
--threads designate the number of threads to be used
+	-threads designate the number of threads to be used
 
--iterations designates how many elements will be added to the list by each thread
+	-iterations designates how many elements will be added to the list by each thread
 
--lists designates how many sub-lists the overall list will be partitioned into
+	-lists designates how many sub-lists the overall list will be partitioned into
 
--yield designates where the forced yields, designed to maximize conflict and contention, will be activated:
+	-yield designates where the forced yields, designed to maximize conflict and contention, will be activated:
 
-	-i indicates a yield in the insert operation
-	-l indicates a yield in the lookup operation
-	-d indicated a yield in the delete operation
-	Any combination of yield operations are supported
+		-i indicates a yield in the insert operation
+		-l indicates a yield in the lookup operation
+		-d indicated a yield in the delete operation
+		Any combination of yield operations are supported
 	
--sync designates what type of synchronization will be used
+	-sync designates what type of synchronization will be used
 
-	-s indicates spin-locking
-	-m indicated mutex-locking
-	Only one of the two should be passed
+		-s indicates spin-locking
+		-m indicated mutex-locking
+		Only one of the two should be passed
 
 Makefile included supports 4 useful targets:
 
