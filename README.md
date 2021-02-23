@@ -1,7 +1,10 @@
 NAME: Rishab Abdulvahid
+
 EMAIL: rabdulvahid23@g.ucla.edu
 
+
 Meaningful contents:
+
 	-Makefile
 	-lab2_list.c
 	-data_producer.sh
@@ -19,10 +22,13 @@ serialization using either mutex or spin-lock synchronization. Ultimately, the c
 of its operations on the linked list. Using a graph script, operating on a list of CSV output from the code, 5 graphs can
 be produced.
 
+
 Output: name of test, number of threads, number of iterations, number of lists, total operations performed, run time in ns,
 average time/op, and average wait-for-lock (for mutex operations)
 
+
 Graphs:
+
 	lab2b_1: Throughput versus number of threads for mutex and spin-lock synchronized operations on a single list.
 		 Demonstrates how parallelizing a shared resource does not scale well with multiple threads (unless the
 		 resource is partitioned in some way).
@@ -37,26 +43,35 @@ Graphs:
 		 how increasing sub-lists generates an increase in throughput for various numbers of threads.
 
 Usage: ./lab2_list [--threads=THREADNUM] [--iterations=NUM] [--lists=NUMLISTS] [--yield=idl] [--sync=m,s]
-       		-threads designate the number of threads to be used
-		-iterations designates how many elements will be added to the list by each thread
-		-lists designates how many sub-lists the overall list will be partitioned into
-		-yield designates where the forced yields, designed to maximize conflict and contention, will be activated:
-		       -i indicates a yield in the insert operation
-		       -l indicates a yield in the lookup operation
-		       -d indicated a yield in the delete operation
-		 Any combination of yield operations are supported
-		-sync designates what type of synchronization will be used
-		       -s indicates spin-locking
-		       -m indicated mutex-locking
-		 Only one of the two should be passed
+
+-threads designate the number of threads to be used
+
+-iterations designates how many elements will be added to the list by each thread
+
+-lists designates how many sub-lists the overall list will be partitioned into
+
+-yield designates where the forced yields, designed to maximize conflict and contention, will be activated:
+
+	-i indicates a yield in the insert operation
+	-l indicates a yield in the lookup operation
+	-d indicated a yield in the delete operation
+	Any combination of yield operations are supported
+	
+-sync designates what type of synchronization will be used
+
+	-s indicates spin-locking
+	-m indicated mutex-locking
+	Only one of the two should be passed
 
 Makefile included supports 4 useful targets:
+
 	 -build builds the executable lab2_list
 	 -tests creates a CSV file from data_producer.sh, used to produce the 5 graphs
 	 -graphs produces the graphs from the CSV, using the graphing script lab2b.gp
 	 -clean will remove the executable	 
 	 
 
+lab2b_1 - lab2b_5 (in order)
 
 ![Screenshot](/lab2b_1.png) 
 
